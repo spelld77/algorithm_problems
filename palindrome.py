@@ -1,6 +1,7 @@
 
 test_sentence = 'A man, a plan, a canal: Panama'
 
+# first solution
 def is_palindrome(sentence) -> bool:
 
     #rm capital
@@ -22,4 +23,16 @@ def is_palindrome(sentence) -> bool:
 
     return False
 
-print(is_palindrome(test_sentence))
+#palindrome by list
+def palindrome_by_list(self, s: str) -> bool:
+    strs = []
+    for char in s:
+        if char.isalnum():
+            strs.append(char.lower())
+
+    #펠린드롬 여부 판별
+    while len(strs) > 1:
+        if strs.pop(0) != strs.pop():
+            return False
+
+    return True
