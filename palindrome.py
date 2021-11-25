@@ -36,3 +36,21 @@ def palindrome_by_list(self, s: str) -> bool:
             return False
 
     return True
+
+def palindrome_by_deque(self, s: str) -> bool:
+    strs: Deque = collections.deque()
+
+    for char in s:
+        if char.isalnum():
+            strs.append(char.lower())
+
+    while len(strs) > 1:
+        if strs.popleft() != strs.pop():
+            return False
+
+    return True
+
+def palindrome_by_slicing(self, s: str) -> bool:
+    s = s.lower()
+    s = re.sub('[^a-zA-Z0-9]', '', s)
+    return s == s[::-1]
